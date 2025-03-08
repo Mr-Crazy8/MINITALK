@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper_func.c                                      :+:      :+:    :+:   */
+/*   helper_func_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anel-men <anel-men@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 02:41:30 by anel-men          #+#    #+#             */
-/*   Updated: 2025/03/08 15:09:20 by anel-men         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:52:50 by anel-men         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,28 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return ((int)(res * sign));
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nbr)
+{
+	if (nbr == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nbr < 0)
+	{
+		ft_putchar('-');
+		nbr = -nbr;
+	}
+	if (nbr >= 10)
+	{
+		ft_putnbr(nbr / 10);
+	}
+	ft_putchar(nbr % 10 + '0');
 }

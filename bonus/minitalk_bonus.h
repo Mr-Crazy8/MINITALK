@@ -6,7 +6,7 @@
 /*   By: anel-men <anel-men@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 02:41:50 by anel-men          #+#    #+#             */
-/*   Updated: 2025/03/08 03:01:38 by anel-men         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:52:27 by anel-men         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ typedef struct s_signal_data
 	unsigned char	utf8_buffer[4];
 	pid_t			pid;
 }	t_signal_data;
+
+void	ft_putnbr(int nbr);
+void	ft_putchar(char c);
 
 #endif

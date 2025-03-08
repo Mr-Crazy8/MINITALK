@@ -6,7 +6,7 @@
 /*   By: anel-men <anel-men@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 02:27:15 by anel-men          #+#    #+#             */
-/*   Updated: 2025/03/08 15:35:18 by anel-men         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:30:29 by anel-men         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 void	send_sig(int server_pid, int bit)
 {
 	if (bit == 1)
-		kill(server_pid, SIGUSR1);
+	{
+		if (kill(server_pid, SIGUSR1) == -1)
+			exit(1);
+	}
 	else
-		kill(server_pid, SIGUSR2);
+	{
+		if (kill(server_pid, SIGUSR2) == -1)
+			exit(1);
+	}
 	usleep(400);
 }
+
 
 void	convert_bits_to_sig(int sever_pid, char c)
 {
@@ -33,7 +40,6 @@ void	convert_bits_to_sig(int sever_pid, char c)
 			send_sig(sever_pid, 1);
 		else
 			send_sig(sever_pid, 0);
-		usleep(400);
 	}
 }
 
@@ -68,9 +74,9 @@ int	main(int argc, char *argv[])
 	int	server_pid;
 
 	i = 0;
-	server_pid = ft_atoi(argv[1]);
-	signal(SIGUSR1, print_done);
 	check_input(argc, argv);
+	signal(SIGUSR1, print_done);
+	server_pid = ft_atoi(argv[1]);
 	while (argv[2][i])
 	{
 		convert_bits_to_sig(server_pid, argv[2][i]);
@@ -81,7 +87,6 @@ int	main(int argc, char *argv[])
 	{
 		send_sig(server_pid, 0);
 		i++;
-		usleep(400);
 	}
 	usleep(1000000);
 }
