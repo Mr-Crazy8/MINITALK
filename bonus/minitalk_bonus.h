@@ -6,7 +6,7 @@
 /*   By: anel-men <anel-men@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 02:41:50 by anel-men          #+#    #+#             */
-/*   Updated: 2025/03/08 17:52:27 by anel-men         ###   ########.fr       */
+/*   Updated: 2025/03/09 00:31:21 by anel-men         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <signal.h>
 # include <stdlib.h>
-
+ 
 int	ft_atoi(const char *str);
 
 typedef struct s_signal_data

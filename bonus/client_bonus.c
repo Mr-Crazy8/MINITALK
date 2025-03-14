@@ -6,7 +6,7 @@
 /*   By: anel-men <anel-men@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 02:27:15 by anel-men          #+#    #+#             */
-/*   Updated: 2025/03/08 17:30:29 by anel-men         ###   ########.fr       */
+/*   Updated: 2025/03/14 00:51:42 by anel-men         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	send_sig(int server_pid, int bit)
 	if (bit == 1)
 	{
 		if (kill(server_pid, SIGUSR1) == -1)
-			exit(1);
+			(write(2, "Error sending SIGUSR1", 21), exit(1));
 	}
 	else
 	{
 		if (kill(server_pid, SIGUSR2) == -1)
-			exit(1);
+			(write(2, "Error sending SIGUSR2", 21), exit(1));
 	}
-	usleep(400);
+	usleep(500);
 }
 
 
